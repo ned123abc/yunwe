@@ -236,7 +236,7 @@ func CreateCacheRuleId(zoneID string) string {
 	return response.Result.ID
 }
 
-// 添加缓存规则
+// 添加缓存规则       配置 /xxxx/  不缓存 绕过缓存
 func UpdateCacheRule(zoneID string) string {
 
 	cacheRuleId := CreateCacheRuleId(zoneID)
