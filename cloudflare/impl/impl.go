@@ -12,20 +12,19 @@ import (
 )
 
 // 生产
-const (
-	baseURL   = "https://api.cloudflare.com/client/v4"
-	authEmail = "xiaohailisa@gmail.com"                 // 替换为你的 Cloudflare 邮箱
-	authKey   = "100d77f4735565e80dd6a140a86e934c18989" // 替换为你的 Cloudflare API 密钥
-	authAccId = "e76a7a23da86f0bf73c5e322227d0b14"
-)
-
-// 测试
 // const (
 // 	baseURL   = "https://api.cloudflare.com/client/v4"
-// 	authEmail = "edison5720@proton.me"                  // 替换为你的 Cloudflare 邮箱
-// 	authKey   = "9c00d16d6b452fe1a77b87a1f21750fbffb14" // 替换为你的 Cloudflare API 密钥
-// 	authAccId = "c6903b93fa1c0ee96bc6e0b2d0f000e9"
+// 	authEmail = "xiaohailisa@gmail.com"                 // 替换为你的 Cloudflare 邮箱
+// 	authKey   = "100d77f4735565e80dd6a140a86e934c18989" // 替换为你的 Cloudflare API 密钥
+// 	authAccId = "e76a7a23da86f0bf73c5e322227d0b14"
 // )
+
+const (
+	baseURL   = "https://api.cloudflare.com/client/v4"
+	authEmail = "cg22william@gmail.com"                 // 替换为你的 Cloudflare 邮箱
+	authKey   = "b055494a5ad9a338701a23eae5ffac55bd5a1" // 替换为你的 Cloudflare API 密钥
+	authAccId = "08658db65e224f04a7315d0e4e55ec89"
+)
 
 // 获取域名ZoneID
 func GetZoneId(varDomain string) (string, error) {
@@ -662,40 +661,3 @@ func UpdateRateLimitRule(zoneID string) string {
 	fmt.Println("Response:", string(body))
 	return "done"
 }
-
-// func MainCfTest(newDomain string) string {
-
-// 	NS1, NS2, siteStatus := NewSite(newDomain)
-// 	if !siteStatus {
-// 		panic("域名没添加Cf")
-// 	}
-
-// 	zoneID, err := GetZoneId(newDomain)
-// 	if err != nil {
-// 		panic(err)
-// 	}
-
-// 	if zoneID != "" {
-// 		UpdateRecord(newDomain, zoneID, "解析名")
-// 		time.Sleep(2 * time.Second)
-// 		UpdateCacheRule(zoneID)
-// 		time.Sleep(2 * time.Second)
-// 		PatchHttpsOn(zoneID)
-// 		time.Sleep(2 * time.Second)
-// 		UpdateFirewallRule(zoneID)
-// 		time.Sleep(2 * time.Second)
-// 		UpdateSecurityLevel(zoneID)
-// 		time.Sleep(2 * time.Second)
-// 		UpdateMinTLSVersion(zoneID)
-// 		time.Sleep(2 * time.Second)
-// 		UpdateRateLimitRule(zoneID)
-
-// 		message := "=== 新域名NS解析 ==="
-// 		message += "\n域名:" + newDomain
-// 		message += "\nNS1:" + NS1
-// 		message += "\nNS2:" + NS2
-// 		fmt.Println(message)
-// 		//telegram.SendMessage(message)
-// 	}
-// 	return ""
-// }
