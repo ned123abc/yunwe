@@ -534,7 +534,7 @@ func UpdateMinTLSVersion(zoneID string) string {
 	return "done"
 }
 
-// ------------------------------- 创建Rete Limit-------------------------------
+// ------------------------------- 网限限速-------------------------------
 func CreateRateLimitRuleId(zoneID string) string {
 
 	url := fmt.Sprintf("https://api.cloudflare.com/client/v4/zones/%s/rulesets", zoneID)
