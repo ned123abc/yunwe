@@ -341,7 +341,7 @@ func CreateFirewallRuleId(zoneID string) string {
 	return response.Result.ID
 }
 
-// ----------------------------------------- 添加Waf防火墙规则    防止其他国家攻击  创建一个limit 所有拒绝所有国家，允许 巴西、中国 访问
+// ----------------------------------------- 添加Waf防火墙规则    防止其他国家攻击  创建一个limit 拒绝所有 国家，允许 巴西、中国 访问
 func UpdateFirewallRule(zoneID string) string {
 
 	firewallRuleId := CreateFirewallRuleId(zoneID)
@@ -349,7 +349,7 @@ func UpdateFirewallRule(zoneID string) string {
 	url := fmt.Sprintf("https://api.cloudflare.com/client/v4/zones/%s/rulesets/%s", zoneID, firewallRuleId)
 	// 创建一个 HTTP 客户端
 
-	// 创建 JSON 数据     
+	// 创建 JSON  如果是允许所有 拒绝 巴西       (ip.geoip.country in {"BR"})
 	jsonData := []byte(`{
         "kind": "zone",
         "description": "This ruleset executes a managed ruleset.",
