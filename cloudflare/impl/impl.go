@@ -1,4 +1,3 @@
-[root@ip-172-31-1-27 impl]# cat impl.go 
 package impl
 
 import (
