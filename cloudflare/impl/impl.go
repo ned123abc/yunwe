@@ -355,7 +355,7 @@ func UpdateFirewallRule(zoneID string) string {
 	url := fmt.Sprintf("https://api.cloudflare.com/client/v4/zones/%s/rulesets/%s", zoneID, firewallRuleId)
 	// 创建一个 HTTP 客户端
 
-	// 创建 JSON 数据
+	// 创建 JSON 数据     创建一个limit 所有拒绝所有国家，允许 巴西、中国 访问
 	jsonData := []byte(`{
         "kind": "zone",
         "description": "This ruleset executes a managed ruleset.",
@@ -363,7 +363,7 @@ func UpdateFirewallRule(zoneID string) string {
         "rules": [
             {
                 "action": "block",
-                "expression": "(not ip.geoip.country in {\"BR\" \"PH\" \"KH\" \"AE\" })",
+                "expression": "(not ip.geoip.country in { \"BR\" \"CN\"  })",
                 "description": "limit",
                 "enabled": true
             }
