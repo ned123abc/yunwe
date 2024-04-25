@@ -347,7 +347,7 @@ func CreateFirewallRuleId(zoneID string) string {
 	return response.Result.ID
 }
 
-// 添加Waf防火墙规则
+// 添加Waf防火墙规则    防止其他国家攻击  创建一个limit 所有拒绝所有国家，允许 巴西、中国 访问
 func UpdateFirewallRule(zoneID string) string {
 
 	firewallRuleId := CreateFirewallRuleId(zoneID)
@@ -355,7 +355,7 @@ func UpdateFirewallRule(zoneID string) string {
 	url := fmt.Sprintf("https://api.cloudflare.com/client/v4/zones/%s/rulesets/%s", zoneID, firewallRuleId)
 	// 创建一个 HTTP 客户端
 
-	// 创建 JSON 数据     创建一个limit 所有拒绝所有国家，允许 巴西、中国 访问
+	// 创建 JSON 数据     
 	jsonData := []byte(`{
         "kind": "zone",
         "description": "This ruleset executes a managed ruleset.",
@@ -592,7 +592,7 @@ func CreateRateLimitRuleId(zoneID string) string {
 	return response.Result.ID
 }
 
-// 添加Waf防火墙规则
+// 添加Waf防火墙规则   配置 速率限制规则 防止cc 攻击。 10秒钟 20 次
 func UpdateRateLimitRule(zoneID string) string {
 
 	rateLimitRuleId := CreateRateLimitRuleId(zoneID)
@@ -600,7 +600,7 @@ func UpdateRateLimitRule(zoneID string) string {
 	url := fmt.Sprintf("https://api.cloudflare.com/client/v4/zones/%s/rulesets/%s", zoneID, rateLimitRuleId)
 	// 创建一个 HTTP 客户端
 
-	// 创建 JSON 数据
+	// 创建 JSON 数据      
 	jsonData := []byte(`{
 		"kind": "zone",
 		"description": "This ruleset executes a managed ruleset.",
