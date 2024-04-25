@@ -12,19 +12,19 @@ import (
 )
 
 // 生产
-// const (
-// 	baseURL   = "https://api.cloudflare.com/client/v4"
-// 	authEmail = "xiaohailisa@gmail.com"                 // 替换为你的 Cloudflare 邮箱
-// 	authKey   = "100d77f4735565e80dd6a140a86e934c18989" // 替换为你的 Cloudflare API 密钥
-// 	authAccId = "e76a7a23da86f0bf73c5e322227d0b14"
-// )
-
 const (
 	baseURL   = "https://api.cloudflare.com/client/v4"
-	authEmail = "cg22william@gmail.com"                 // 替换为你的 Cloudflare 邮箱
-	authKey   = "b055494a5ad9a338701a23eae5ffac55bd5a1" // 替换为你的 Cloudflare API 密钥
-	authAccId = "08658db65e224f04a7315d0e4e55ec89"
+	authEmail = "xiaohailisa@gmail.com"                 // 替换为你的 Cloudflare 邮箱
+	authKey   = "100d77f4735565e80dd6a140a86e934c18989" // 替换为你的 Cloudflare API 密钥
+	authAccId = "e76a7a23da86f0bf73c5e322227d0b14"
 )
+
+// const (
+// 	baseURL   = "https://api.cloudflare.com/client/v4"
+// 	authEmail = "cg22william@gmail.com"                 // 替换为你的 Cloudflare 邮箱
+// 	authKey   = "b055494a5ad9a338701a23eae5ffac55bd5a1" // 替换为你的 Cloudflare API 密钥
+// 	authAccId = "08658db65e224f04a7315d0e4e55ec89"
+// )
 
 // 获取域名ZoneID
 func GetZoneId(varDomain string) (string, error) {
