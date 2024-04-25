@@ -19,12 +19,6 @@ const (
 	authAccId = "e76a7a23da86f0bf73c5e322227d0b14"
 )
 
-// const (
-// 	baseURL   = "https://api.cloudflare.com/client/v4"
-// 	authEmail = "cg22william@gmail.com"                 // 替换为你的 Cloudflare 邮箱
-// 	authKey   = "b055494a5ad9a338701a23eae5ffac55bd5a1" // 替换为你的 Cloudflare API 密钥
-// 	authAccId = "08658db65e224f04a7315d0e4e55ec89"
-// )
 
 // 获取域名ZoneID
 func GetZoneId(varDomain string) (string, error) {
@@ -62,7 +56,7 @@ func GetZoneId(varDomain string) (string, error) {
 	}
 }
 
-// 添加域名解析
+// -----------------------------------------  添加域名解析
 func UpdateRecord(varDomain string, cfZoneId string, varRecord string) string {
 	// 初始化 DNS 记录数组
 	records := []cloudflare.DNSRecord{
@@ -236,7 +230,7 @@ func CreateCacheRuleId(zoneID string) string {
 	return response.Result.ID
 }
 
-// 添加缓存规则       配置 /xxxx/  不缓存 绕过缓存
+// ----------------------------------------- 添加缓存规则       配置 /xxxx/  不缓存 绕过缓存
 func UpdateCacheRule(zoneID string) string {
 
 	cacheRuleId := CreateCacheRuleId(zoneID)
@@ -347,7 +341,7 @@ func CreateFirewallRuleId(zoneID string) string {
 	return response.Result.ID
 }
 
-// 添加Waf防火墙规则    防止其他国家攻击  创建一个limit 所有拒绝所有国家，允许 巴西、中国 访问
+// ----------------------------------------- 添加Waf防火墙规则    防止其他国家攻击  创建一个limit 所有拒绝所有国家，允许 巴西、中国 访问
 func UpdateFirewallRule(zoneID string) string {
 
 	firewallRuleId := CreateFirewallRuleId(zoneID)
@@ -408,7 +402,7 @@ func UpdateFirewallRule(zoneID string) string {
 	return "done"
 }
 
-// 开启https跳转
+// ----------------------------------------- 开启https跳转
 func PatchHttpsOn(zoneID string) string {
 
 	url := fmt.Sprintf("https://api.cloudflare.com/client/v4/zones/%s/settings/always_use_https", zoneID)
@@ -592,7 +586,7 @@ func CreateRateLimitRuleId(zoneID string) string {
 	return response.Result.ID
 }
 
-// 添加Waf防火墙规则   配置 速率限制规则 防止cc 攻击。 10秒钟 20 次
+// --------------------- 添加Waf防火墙规则   配置 速率限制规则 防止cc 攻击。 10秒钟 20 次
 func UpdateRateLimitRule(zoneID string) string {
 
 	rateLimitRuleId := CreateRateLimitRuleId(zoneID)
