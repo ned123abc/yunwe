@@ -8,8 +8,8 @@ import (
 
 // SendMessage sends a message through the Telegram Bot API
 func SendMessage(text string) error {
-	chatID := "-4112414208"
-	url := "https://api.telegram.org/bot6559646803:AAFTKQmzFnx1dzbDT9z3mkqU_RzF2lBw_Fs/sendMessage"
+	chatID := "-4184774560"
+	url := "https://api.telegram.org/bot6399326213:AAEg44i3AXPj1_-xPZzm7S70-j1r5nf7tGw/sendMessage"
 
 	// 构建消息体
 	message := map[string]string{
