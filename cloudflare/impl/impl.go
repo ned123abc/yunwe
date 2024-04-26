@@ -357,7 +357,7 @@ func UpdateFirewallRule(zoneID string) string {
         "rules": [
             {
                 "action": "block",
-                "expression": "(not ip.geoip.country in { \"BR\" \"CN\"  })",
+                "expression": "(not ip.geoip.country in {"CN" "JP"})",
                 "description": "limit",
                 "enabled": true
             }
